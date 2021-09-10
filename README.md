@@ -7,4 +7,5 @@ Every day I gif and I like it...
 
 ## Authors
 * [Geoffrey Vaniscotte](https://github.com/vaniscotte-geoffrey)
+* [Benoit Bankaert](https://github.com/MrKeesLer)
 * [Aymeric Hénouille](https://github.com/AymericHenouille)
