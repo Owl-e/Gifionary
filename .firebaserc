@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gifionary": {
+      "hosting": {
+        "Gifionary": [
+          "gifionary"
+        ]
+      }
+    }
+  }
+}
