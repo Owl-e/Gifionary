@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gifionary": {
+      "hosting": {
+        "Gifionary": [
+          "gifionary"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gifionary"
+  }
+}
