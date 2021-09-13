@@ -84,7 +84,9 @@
             background-color: $primary-800;
             border-bottom-right-radius: 10px;
             border-top-right-radius: 10px;
-            margin-right: 5px;
+            & mat-icon {
+              margin-right: 5px;
+            }
             &:hover {
               & mat-icon {
                 transform: scale(1.2);
