@@ -1,0 +1,12 @@
+<div class="leaderboard-container">
+    <div class="user-container" *ngFor="let user of users" [style.border-color]="user.color" >
+        <div class="user-photo"></div>
+        <span class="user-info">
+            <h1 class="user-name" [style.color]="user.color">{{ user.name }}</h1>
+            <p class="user-score">{{ user.point }}pts</p>
+        </span>
+        <div class="icons">
+            <mat-icon *ngIf="user.isEditing" class="edit-icon">mode_edit</mat-icon>
+        </div>
+    </div>
+</div>
