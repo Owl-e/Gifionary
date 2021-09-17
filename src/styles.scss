@@ -11,8 +11,27 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$Gifionary-primary: mat.define-palette(mat.$indigo-palette);
-$Gifionary-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$dark-grey-palette: (
+  800:#101f27,
+  400: #37464f,
+  100: #62717b,
+  contrast: (
+    800: #f1f1f1,
+    400: #f1f1f1,
+    100: #101f27
+  )
+);
+
+$yellow-palette: (
+  900: #ffb347,
+  contrast: (
+    900: #101f27
+  )
+);
+
+$Gifionary-primary: mat.define-palette($dark-grey-palette);
+$Gifionary-accent: mat.define-palette($yellow-palette);
 
 // The warn palette is optional (defaults to red).
 $Gifionary-warn: mat.define-palette(mat.$red-palette);
@@ -26,6 +45,7 @@ $Gifionary-theme: mat.define-light-theme((
     warn: $Gifionary-warn,
   )
 ));
+
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
