@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BackgroundComponent } from './components/background.component';
 import { FireModule } from './fire/fire.module';
 import { GifService } from './services/gif.service';
+import { RoomService } from './services/room.service';
 import { UserService } from './services/user.service';
 
 const EXPORTED_MODULES: Type<unknown>[] = [
@@ -26,7 +27,8 @@ const EXPORTED_COMPONENTS: Type<unknown>[] = [
   exports: [EXPORTED_MODULES, EXPORTED_COMPONENTS],
   providers: [
     UserService,
-    GifService
+    GifService,
+    RoomService
   ]
 })
 export class CoreModule { }
