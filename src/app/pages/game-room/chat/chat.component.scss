@@ -1,0 +1,41 @@
+@use '../../../../styles/variables.scss' as var;
+
+.chat-container {
+    background-color: white;
+    border: var.$primary-800 solid 1px;
+    border-radius: 20px;
+    height: calc(95% - 2 * 0.8rem);
+    padding: 0.8rem;
+    font-family: var.$main-font;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .messages {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
+        .message {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 5px;
+            background-color: var.$dark-white;
+            border: var.$primary-800 solid 1px;
+            border-radius: 5px;
+            padding: 3px;
+            width: 100%;
+        }
+    }
+
+    .message-input {
+        width: calc(100% - 2 * 0.8em);
+        border: var.$primary-800 solid 1px;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 0 0.8em 0 0.8em;
+    }
+}

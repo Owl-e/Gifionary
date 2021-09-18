@@ -6,16 +6,16 @@
       <div class="input-container">
         <label class="label">Your Name</label>
         <div class="name-color-container">
-          <input class="name-input" name="name" placeholder="MyNameIsJeff" type="text">
+          <input #nameInput class="name-input" name="name" placeholder="MyNameIsJeff" type="text">
           <a (click)="pickColor()" [style.backgroundColor]="playerColor" class="color-input"></a>
         </div>
       </div>
       <div class="input-container">
         <label class="label">Room code</label>
-        <input name="room-code" type="text">
+        <input #roomCodeInput name="room-code" type="text">
       </div>
       <div class="actions">
-        <a class="play button" type="button">JOUER</a>
+        <a class="play button" type="button" (click)="play()">JOUER</a>
         <a class="customize button" type="button">
           <mat-icon aria-label="Customize game">build</mat-icon>
         </a>

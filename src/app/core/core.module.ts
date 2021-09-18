@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FireModule } from './fire/fire.module';
 import { GifService } from './services/gif.service';
+import { RoomService } from './services/room.service';
 import { UserService } from './services/user.service';
 
 const MODULES: Type<unknown>[] = [
@@ -21,7 +22,8 @@ const MODULES: Type<unknown>[] = [
   exports: [MODULES],
   providers: [
     UserService,
-    GifService
+    GifService,
+    RoomService
   ]
 })
 export class CoreModule { }
