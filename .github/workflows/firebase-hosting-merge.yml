@@ -25,7 +25,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: fateyan/action-discord-notifier@v1
+
+      - uses: sebastianpopp/discord-action@v1.0
         with:
-          message-title: Une nouvelle version de Gifionary vient d'être publiée ! checker moi ça => gifionary.com
+          # Discord webhook URL
           webhook: https://discord.com/api/webhooks/892010868844412928/ceKCOSZfQcun5Jx2OMQT7dTmBYr6MVqJITuTFBYQftyqz_JxTxH2HCyEkYVpgve0J_Ls
+          # Message to be sent
+          message: Une nouvelle version de Gifionary vient d'être publiée ! checker moi ça => gifionary.com
