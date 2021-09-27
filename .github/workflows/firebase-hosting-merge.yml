@@ -20,6 +20,7 @@ jobs:
           projectId: gifionary
   notify:
     name: Discord Notification
+    needs: build_and_deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
