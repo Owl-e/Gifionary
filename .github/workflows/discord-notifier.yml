@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - master
+name: Discord Notification
+
+jobs:
+  notify:
+    name: Discord Notification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: fateyan/action-discord-notifier@v1
+        with:
+          message-title: Une nouvelle version de Gifionary vient d'être publiée ! checker moi ça => gifionary.com
+          webhook: https://discord.com/api/webhooks/892010868844412928/ceKCOSZfQcun5Jx2OMQT7dTmBYr6MVqJITuTFBYQftyqz_JxTxH2HCyEkYVpgve0J_Ls
