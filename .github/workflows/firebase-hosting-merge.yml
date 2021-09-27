@@ -28,11 +28,11 @@ jobs:
       - uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info
-          username: Notification de recette
+          username: Notification de déploiment
           color: '#6670f2'
           # avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: Mise à jour de la recette de Handy.
+          description: Mise à jour de la recette de Gifionary.
           # details: 'Custom details: Somebody set up us the bomb.'
-          footer: Développer avec 💖 par les Handy's.
+          footer: Développer avec 💖.
           text: Et voilà une update.
-          webhookUrl: https://discord.com/api/webhooks/892033388477825094/GPxmyddrxS42uHP0kVx8vAY_OvayEDrP4WmQ7M6PBrzVHWzvff7wsBhAQ9Cd0SN_qKJp
+          webhookUrl: https://discord.com/api/webhooks/892010868844412928/ceKCOSZfQcun5Jx2OMQT7dTmBYr6MVqJITuTFBYQftyqz_JxTxH2HCyEkYVpgve0J_Ls
