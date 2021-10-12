@@ -2,10 +2,10 @@
   "name": "gifionary",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
+    "emulators": "firebase emulators:start",
+    "watch:function": "cd functions && npm run watch",
+    "start": "concurrently -n Emulators,Angular -c yellow,bgRed \"npm run watch:function | npm run emulators\" \"ng serve\"",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
@@ -34,6 +34,7 @@
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
+    "concurrently": "^6.3.0",
     "firebase-tools": "^9.18.0",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.2",

@@ -1,0 +1,8 @@
+$background-color: #101f27;
+$dark-gif: #37464f;
+$light-gif: #62717b;
+
+@mixin gif-background {
+  background-color: $background-color;
+  background: repeat;
+}
