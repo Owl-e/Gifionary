@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoardComponent } from './board/board.component';
+import { BoardComponent } from './pages/board/board.component';
 import { GameRoomRoutingModule } from './game-room-routing.module';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { ChatComponent } from './chat/chat.component';
-import { SandboxComponent } from './sandbox/sandbox.component';
+import { ChatComponent } from './components/chat/chat.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { SandboxComponent } from './components/sandbox/sandbox.component';
 
 const COMPONENTS = [
   BoardComponent,
@@ -21,7 +21,7 @@ const COMPONENTS = [
   imports: [
     CommonModule,
     GameRoomRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     COMPONENTS,

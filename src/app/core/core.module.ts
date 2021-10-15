@@ -1,5 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Type } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FireModule } from './fire/fire.module';
@@ -23,7 +26,7 @@ const MODULES: Type<unknown>[] = [
   providers: [
     UserService,
     GifService,
-    RoomService
+    RoomService,
   ]
 })
 export class CoreModule { }
