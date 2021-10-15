@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 =======
 import { Component, ElementRef, ViewChild } from '@angular/core';
 >>>>>>> chat design
+=======
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+>>>>>>> feat: game room
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GifKey } from 'src/app/core/modals/gif-key';

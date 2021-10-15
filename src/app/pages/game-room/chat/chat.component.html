@@ -1,9 +1,0 @@
-<div class="chat-container">
-    <div class="messages">
-        <div class="message" *ngFor="let message of messages" [style.border-color]="message.user.color">
-            <div class="user-name" [style.color]="message.user.color">{{ message.user.name }} :</div>
-            <div class="user-message">{{ message.message }}</div>
-        </div>
-    </div>
-    <input class="message-input" type="text" name="message" placeholder="Enter message ...">
-</div>
