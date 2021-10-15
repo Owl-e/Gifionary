@@ -2,35 +2,21 @@ $background-color: #101f27;
 $dark-gif: #37464f;
 $light-gif: #62717b;
 $background-size: 50px;
-$background-url: '../../../assets/svg/gif.svg';
-
-@mixin fullscreen {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .background {
-  @include fullscreen;
   background-color: $background-color;
-  &:before {
+  width: 100vw;
+  height: 100vh;
+  &::before {
     content: '';
-    @include fullscreen;
-    background: url($background-url);
-    background-size: $background-size $background-size;
-    background-repeat: repeat;
-    background-position: 0 0;
-    animation: animated-background 5s linear infinite;
   }
 }
 
-@keyframes animated-background {
+@keyframes scroll {
   from {
-    background-position: 0 0;
+    transform: translate(0%, 0%);
   }
   to {
-    background-position: -$background-size $background-size;
+    transform: translate(-100%, 100%);
   }
 }
