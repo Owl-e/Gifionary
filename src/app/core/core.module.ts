@@ -25,6 +25,7 @@ const EXPORTED_COMPONENTS: Type<unknown>[] = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     EXPORTED_MODULES
   ],
   exports: [EXPORTED_MODULES, EXPORTED_COMPONENTS],

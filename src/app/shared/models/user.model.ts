@@ -1,7 +1,7 @@
 export interface User {
-    name?: string;
+    name: string;
     point?: number;
     photo?: string;
-    color?: string;
+    color: string;
     isEditing?: boolean;
 }

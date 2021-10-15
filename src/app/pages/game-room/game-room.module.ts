@@ -6,6 +6,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { SandboxComponent } from './components/sandbox/sandbox.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   BoardComponent,
@@ -22,6 +23,8 @@ const COMPONENTS = [
     CommonModule,
     GameRoomRoutingModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     COMPONENTS,

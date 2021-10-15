@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GifKey } from '../modals/gif-key';
+import { GifKey } from '../../shared/models/gif-key';
 
 @Injectable()
 export class GifService {

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { RoomService } from 'src/app/core/services/room.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { Room } from 'src/app/shared/models/room.model';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -6,35 +9,7 @@ import { User } from 'src/app/shared/models/user.model';
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.scss']
 })
-export class LeaderboardComponent implements OnInit {
-
-  public users: User[] = [
-    {
-      name: 'Benoit',
-      color: 'green',
-      isEditing: false,
-      photo: 'https://media-exp1.licdn.com/dms/image/C5603AQE_MZydFSoNrw/profile-displayphoto-shrink_200_200/0/1583853168305?e=1637193600&v=beta&t=Ap0MEDA780DVePLBu7xV5Uv5KqWiBnUHXyPv06W7imY',
-      point: 150
-    },
-    {
-      name: 'Ugo',
-      color: 'red',
-      isEditing: true,
-      photo: 'https://media-exp1.licdn.com/dms/image/C5603AQE_MZydFSoNrw/profile-displayphoto-shrink_200_200/0/1583853168305?e=1637193600&v=beta&t=Ap0MEDA780DVePLBu7xV5Uv5KqWiBnUHXyPv06W7imY',
-      point: 2
-    },
-    {
-      name: 'Jean Emmannuel',
-      color: 'black',
-      isEditing: false,
-      photo: 'https://media-exp1.licdn.com/dms/image/C5603AQE_MZydFSoNrw/profile-displayphoto-shrink_200_200/0/1583853168305?e=1637193600&v=beta&t=Ap0MEDA780DVePLBu7xV5Uv5KqWiBnUHXyPv06W7imY',
-      point: 2974
-    },
-  ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class LeaderboardComponent {
+  @Input() public users: User[] = [];
+  @Input() public room!: Room;
 }

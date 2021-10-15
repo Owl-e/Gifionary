@@ -1,7 +1,7 @@
-<div class="board-container">
-    <app-leaderboard></app-leaderboard>
+<div class="board-container" *ngIf="room$ | async as room">
+    <app-leaderboard [users]="room.users" [room]="room"></app-leaderboard>
     <div class=" bottom-card flex-row">
-        <app-chat class="chat"></app-chat>
+        <app-chat class="chat" [room]="room" [user]="user"></app-chat>
         <div class="vertical-separator"></div>
         <app-sandbox class="sandbox"></app-sandbox>
     </div>
