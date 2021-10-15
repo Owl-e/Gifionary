@@ -10,19 +10,19 @@ export class RoomService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  public async createRoom(): Promise<Room> {
+  public async createRoom(user: User): Promise<Room> {
     const room: Room = {
       users: []
     }
     const document: DocumentReference<Room> = await this.firestore.collection<Room>(this.ROOM_COLLECTION).add(room);
     room.id = document.id;
-    return room;
+    return this.joinRoom(user, room.id);
   }
 
-  public async joinRoom(user: User, roomId: string): Promise<Room | undefined> {
+  public async joinRoom(user: User, roomId: string): Promise<Room> {
     const doc = await this.firestore.collection<Room>(this.ROOM_COLLECTION).doc(roomId).get().toPromise();
     console.log(doc.data);
-    return doc.data();
+    const room: Room | undefined = doc.data();
+    return room ? room : await this.createRoom(user);
   }
-
 }
