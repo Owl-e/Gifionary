@@ -8,6 +8,6 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./leaderboard.component.scss']
 })
 export class LeaderboardComponent {
-  @Input() public users: User[] = [];
-  @Input() public room!: Room;
+  @Input() public users: User[] | undefined = [];
+  @Input() public room!: Room | undefined | null;
 }

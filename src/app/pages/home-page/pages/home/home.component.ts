@@ -1,12 +1,11 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GifKey } from 'src/app/shared/models/gif-key';
 import { GifService } from 'src/app/core/services/gif.service';
 import { RoomService } from 'src/app/core/services/room.service';
 import { UserService } from 'src/app/core/services/user.service';
-import { User } from 'src/app/shared/models/user.model';
-import { Router } from '@angular/router';
+import { GifKey } from 'src/app/shared/models/gif-key';
 
 @Component({
   selector: 'app-home',
@@ -15,20 +14,22 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   public playerColor!: string;
+  public defaultName: string = '';
   public welcomeGif!: Observable<string>;
   public playButtonText: string = 'JOUER';
 
-  @ViewChild('roomCodeInput') public roomCodeInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('nameInput') public nameInput!: ElementRef<HTMLInputElement>;
+  public roomCodeInput!: string;
+  public nameInput!: string;
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     public gifService: GifService,
     private roomService: RoomService,
     private router: Router
   ) {
     this.pickColor();
     this.welcomeGif = this.gifService.getRandomGif(GifKey.WELCOME).pipe(map(url => 'url(' + url + ')'));
+    this.defaultName = userService.randomName();
   }
 
   public pickColor(): void {
@@ -37,15 +38,15 @@ export class HomeComponent {
   }
 
   public async play(): Promise<void> {
-    const name: string = this.nameInput.nativeElement.value;
-    const roomId: string = this.roomCodeInput.nativeElement.value;
-    const user: User = {
+    this.userService.updateUser({
       color: this.playerColor,
-      name: name === '' ? this.userService.randomName() : name,
+      name: this.nameInput ?? this.defaultName,
       point: 0
-    };
-    this.userService.user = user;
-    const room = roomId ? await this.roomService.joinRoom(user, roomId) : await this.roomService.createRoom(user);
-    return this.router.navigate(['game', room.id]).then();
+    });
+    const id: string = this.roomCodeInput ?? (await this.roomService.createRoom({
+      messages: [],
+      users: []
+    })).id ?? '';
+    return this.router.navigate(['game', id]).then();
   }
 }

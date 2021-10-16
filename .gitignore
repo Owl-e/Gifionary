@@ -35,15 +35,10 @@ chrome-profiler-events*.json
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
 /typings
 
 # firebase
-firestore-debug.log
-firebase-debug.log
-ui-debug.log
+*.log
 
 # System Files
 .DS_Store
