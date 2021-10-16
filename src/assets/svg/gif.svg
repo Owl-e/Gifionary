@@ -4,8 +4,8 @@
 
   <text x="250" y="150"
         font-family="Verdana"
-        font-size="55">
-    Bonjour tout le monde!
+        font-size="300">
+    GIF
   </text>
 
   <!-- Dessine le contour de l'image -->

@@ -26,6 +26,10 @@ $background-url: '../../../assets/svg/gif.svg';
   }
 }
 
+div.upside-down {
+  transform: rotate(180deg);
+}
+
 @keyframes animated-background {
   from {
     background-position: 0 0;
