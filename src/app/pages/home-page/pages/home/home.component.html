@@ -6,13 +6,13 @@
       <div class="input-container">
         <label class="label">Your Name</label>
         <div class="name-color-container">
-          <input #nameInput class="name-input" name="name" placeholder="MyNameIsJeff" type="text">
+          <input [(ngModel)]="nameInput" class="name-input" name="name" [placeholder]="defaultName" type="text">
           <a (click)="pickColor()" [style.backgroundColor]="playerColor" class="color-input"></a>
         </div>
       </div>
       <div class="input-container">
         <label class="label">Room code</label>
-        <input #roomCodeInput name="room-code" type="text">
+        <input [(ngModel)]="roomCodeInput" name="room-code" type="text">
       </div>
       <div class="actions">
         <a class="play button" type="button" (click)="play()">{{ playButtonText }}</a>
