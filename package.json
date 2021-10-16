@@ -4,7 +4,7 @@
   "scripts": {
     "emulators": "firebase emulators:start",
     "watch:function": "cd functions && npm run watch",
-    "start": "concurrently -n Emulators,Angular -c yellow,bgRed \"npm run watch:function | npm run emulators\" \"ng serve\"",
+    "start": "concurrently -n Emulators,Angular -c yellow,bold \"npm run watch:function | npm run emulators\" \"ng serve\"",
     "build": "ng build",
     "test": "ng test"
   },

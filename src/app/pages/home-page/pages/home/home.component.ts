@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -6,6 +7,7 @@ import { GifService } from 'src/app/core/services/gif.service';
 import { RoomService } from 'src/app/core/services/room.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { GifKey } from 'src/app/shared/models/gif-key';
+import { Room } from 'src/app/shared/models/room.model';
 
 @Component({
   selector: 'app-home',
@@ -21,19 +23,22 @@ export class HomeComponent {
   public roomCodeInput!: string;
   public nameInput!: string;
 
+  public placeHolderId: string;
+
   constructor(
-    public userService: UserService,
-    public gifService: GifService,
+    private userService: UserService,
+    private gifService: GifService,
     private roomService: RoomService,
-    private router: Router
+    private router: Router,
+    firestore: AngularFirestore
   ) {
+    this.placeHolderId = firestore.createId();
     this.pickColor();
-    this.welcomeGif = this.gifService.getRandomGif(GifKey.WELCOME).pipe(map(url => 'url(' + url + ')'));
+    this.welcomeGif = this.gifService.getRandomGif(GifKey.WELCOME).pipe(map(url => `url(${url})`));
     this.defaultName = userService.randomName();
   }
 
   public pickColor(): void {
-    // TODO Link to a color picker
     this.playerColor = this.userService.randomColor();
   }
 
@@ -43,10 +48,10 @@ export class HomeComponent {
       name: this.nameInput ?? this.defaultName,
       point: 0
     });
-    const id: string = this.roomCodeInput ?? (await this.roomService.createRoom({
-      messages: [],
-      users: []
-    })).id ?? '';
-    return this.router.navigate(['game', id]).then();
+    const room: Room = await this.roomService.joinRoom({
+      id: this.roomCodeInput ?? this.placeHolderId,
+      messages: []
+    });
+    return this.router.navigate(['game', room.id]).then();
   }
 }

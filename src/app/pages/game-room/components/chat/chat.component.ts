@@ -20,8 +20,11 @@ export class ChatComponent {
   });
 
   public async sendMessage(): Promise<void> {
-    this.room?.messages.push({user: this.user, message: this.chatForm.get('message')?.value ?? ''});
-    this.room && await this.roomService.updateRoom(this.room);
-    this.chatForm.reset();
+    if (this.room) {
+      this.room.messages ??= [];
+      this.room.messages.push({user: this.user, message: this.chatForm.get('message')?.value ?? ''});
+      this.room && await this.roomService.updateRoom(this.room);
+      this.chatForm.reset();
+    }
   }
 }

@@ -12,7 +12,7 @@
       </div>
       <div class="input-container">
         <label class="label">Room code</label>
-        <input [(ngModel)]="roomCodeInput" name="room-code" type="text">
+        <input [(ngModel)]="roomCodeInput" name="room-code" type="text" [placeholder]="placeHolderId">
       </div>
       <div class="actions">
         <a class="play button" type="button" (click)="play()">{{ playButtonText }}</a>
