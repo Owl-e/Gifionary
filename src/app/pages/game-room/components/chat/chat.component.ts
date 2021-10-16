@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RoomService } from 'src/app/core/services/room.service';
-import { UserService } from 'src/app/core/services/user.service';
-import { Message } from 'src/app/shared/models/message.model';
 import { Room } from 'src/app/shared/models/room.model';
 import { User } from 'src/app/shared/models/user.model';
 
@@ -15,9 +13,7 @@ export class ChatComponent implements OnInit {
   @Input() public room!: Room;
   @Input() public user!: User;
 
-  constructor(
-    private roomService: RoomService
-  ) { }
+  constructor(private roomService: RoomService) { }
 
   public async ngOnInit(): Promise<void> {
     console.log(this.user)

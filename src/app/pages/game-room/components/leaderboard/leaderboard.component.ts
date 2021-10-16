@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { RoomService } from 'src/app/core/services/room.service';
-import { UserService } from 'src/app/core/services/user.service';
+import { Component, Input } from '@angular/core';
 import { Room } from 'src/app/shared/models/room.model';
 import { User } from 'src/app/shared/models/user.model';
 
