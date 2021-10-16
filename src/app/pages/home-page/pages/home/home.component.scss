@@ -1,5 +1,4 @@
-@use '~@angular/material' as mat;
-@use '../../../../../styles/variables.scss' as var;
+@use '../../../../../styles/variables' as var;
 
 .card-container {
   width: 100vw;
@@ -38,7 +37,7 @@
         }
         & .name-color-container {
           display: flex;
-          justify-content: start;
+          justify-content: flex-start;
           gap: 0.5rem;
           & .name-input {
             width: 93%;
