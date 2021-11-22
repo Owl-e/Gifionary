@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { filter, first, map, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { first, map, switchMap } from 'rxjs/operators';
 import { Room } from 'src/app/shared/models/room.model';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from './user.service';
@@ -13,20 +12,21 @@ export class RoomService {
   private readonly ROOM_COLLECTION: string = 'rooms';
   private readonly USER_SUB_COLLECTION: string = 'users';
 
-  public currentRoom$: Observable<Room | undefined>;
+  private currentRoomSubject$: BehaviorSubject<string | undefined> = new BehaviorSubject<string | undefined>(undefined);
 
   constructor(
     private firestore: AngularFirestore,
-    private userService: UserService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
-    this.currentRoom$ = this.router.events.pipe(
-      tap(console.log),
-      filter(event => event instanceof NavigationEnd),
-      switchMap(event => this.activatedRoute.params),
-      tap(console.log)
+    private userService: UserService
+  ) { }
+
+  public get currentRoom$(): Observable<Room | undefined> {
+    return this.currentRoomSubject$.pipe(
+      switchMap(id => id ? this.getRoomById(id) : of(undefined))
     );
+  }
+
+  public updateCurrentRoomId(room: string): void {
+    this.currentRoomSubject$.next(room);
   }
 
   public async joinRoom(room: Room): Promise<Room> {

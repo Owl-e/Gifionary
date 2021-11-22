@@ -1,4 +1,3 @@
-{{ user | json }} {{ room | json }}
 <div class="board-container" *ngIf="user && room">
   <app-leaderboard [users]="room.users" [room]="room"></app-leaderboard>
   <div class=" bottom-card flex-row">
